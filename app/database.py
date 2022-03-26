@@ -5,7 +5,7 @@ from urllib.parse import quote
 from .config import settings
 
 # engine = create_engine('mysql+pymysql://scott:tiger@localhost/foo')
-engine = create_engine(f'mysql+pymysql://{settings.database_username}:%s@{settings.database_hostname}/{settings.database_name}'%quote(settings.database_password))
+engine = create_engine(f'mysql+pymysql://{settings.database_username}:%s@{settings.database_hostname}:{settings.database_port}/{settings.database_name}'%quote(settings.database_password))
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind = engine)
 Base = declarative_base()
 conn = engine.connect()

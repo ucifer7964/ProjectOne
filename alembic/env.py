@@ -11,7 +11,7 @@ from urllib.parse import quote
 # access to the values within the .ini file in use.
 config = context.config
 config.set_main_option(
-    "sqlalchemy.url",(f'mysql+pymysql://{settings.database_username}:%s@{settings.database_hostname}/{settings.database_name}'%quote(settings.database_password)).replace('%', '%%')
+    "sqlalchemy.url",(f'mysql+pymysql://{settings.database_username}:%s@{settings.database_hostname}:{settings.database_port}/{settings.database_name}'%quote(settings.database_password)).replace('%', '%%')
 )
 
 # Interpret the config file for Python logging.
